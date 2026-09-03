@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mijn interesses</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/interests">Mijn interesses</a>
+    </nav>
+
+    <main>
+        <h1>Mijn interesses</h1>
+
+        {% if interests %}
+            {% for interest in interests %}
+                <article>
+                    <h2>{{ interest["name"] }}</h2>
+                    <p><strong>Categorie:</strong> {{ interest["category"] }}</p>
+                    <p>{{ interest["description"] }}</p>
+                </article>
+                <hr>
+            {% endfor %}
+        {% else %}
+            <p>Er zijn nog geen interesses in de database gevonden.</p>
+        {% endif %}
+    </main>
+</body>
+</html>
